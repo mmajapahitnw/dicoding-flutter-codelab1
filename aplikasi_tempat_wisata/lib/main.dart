@@ -38,6 +38,7 @@ class DetailScreen extends StatelessWidget {
             Container(
               margin: const EdgeInsets.symmetric(vertical: 16),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Column(
                     children: const <Widget>[
@@ -51,6 +52,13 @@ class DetailScreen extends StatelessWidget {
                       Icon(Icons.access_time_rounded),
                       SizedBox(height: 8,),
                       Text('09.00 - 20.00')
+                    ],
+                  ),
+                  Column(
+                    children: const <Widget>[
+                      Icon(Icons.monetization_on_rounded),
+                      SizedBox(height: 8,),
+                      Text('Rp 25.000')
                     ],
                   ),
                 ],
