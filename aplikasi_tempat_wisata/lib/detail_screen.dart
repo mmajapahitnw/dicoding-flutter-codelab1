@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+var informationTextStyle = const TextStyle(fontFamily: 'Oxygen');
+
 class DetailScreen extends StatelessWidget {
   const DetailScreen({Key? key}) : super(key: key);
 
@@ -20,6 +22,7 @@ class DetailScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
+                      fontFamily: 'Staatliches',
                     )),
               ),
               Container(
@@ -28,24 +31,33 @@ class DetailScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Column(
-                      children: const <Widget>[
-                        Icon(Icons.calendar_today),
-                        SizedBox(height: 8,),
-                        Text('Open Everyday'),
+                      children: <Widget>[
+                        const Icon(Icons.calendar_today),
+                        const SizedBox(height: 8,),
+                        Text(
+                          'Open Everyday',
+                          style: informationTextStyle,
+                        ),
                       ],
                     ),
                     Column(
-                      children: const <Widget>[
-                        Icon(Icons.access_time_rounded),
-                        SizedBox(height: 8,),
-                        Text('09.00 - 20.00')
+                      children: <Widget>[
+                        const Icon(Icons.access_time_rounded),
+                        const SizedBox(height: 8,),
+                        Text(
+                          '09.00 - 20.00',
+                          style: informationTextStyle,
+                        )
                       ],
                     ),
                     Column(
-                      children: const <Widget>[
-                        Icon(Icons.monetization_on_rounded),
-                        SizedBox(height: 8,),
-                        Text('Rp 25.000')
+                      children: <Widget>[
+                        const Icon(Icons.monetization_on_rounded),
+                        const SizedBox(height: 8,),
+                        Text(
+                          'Rp 25.000',
+                          style: informationTextStyle,
+                        )
                       ],
                     ),
                   ],
