@@ -156,8 +156,7 @@ class DetailWebScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        //to match column width with device's width
-        children: <Widget>[
+        children: [
           const Text(
             'Wisata Bandung',
             style: TextStyle(
@@ -172,22 +171,18 @@ class DetailWebScreen extends StatelessWidget {
               Expanded(
                 child: Column(
                   children: [
-                    Image.asset(place.imageAsset),
-                    Container(
-                      height: 150,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: place.imageUrls.map((url) {
-                          return Padding(
-                            padding: const EdgeInsets.all(4),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: Image.network(url),
-                            ),
-                          );
-                        }).toList(),
-                      ),
+                    ClipRRect(
+                      child: Image.asset(place.imageAsset),
+                      borderRadius: BorderRadius.circular(10),
                     ),
+                    const SizedBox(height: 16),
+                    // Container(
+                    //   height: 150,
+                    //   padding: const EdgeInsets.only(bottom: 16),
+                    //   child: ListView(
+                    //     scrollDirection: ,
+                    //   ),
+                    // )
                   ],
                 )
               ),
