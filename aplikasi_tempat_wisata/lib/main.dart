@@ -1,3 +1,4 @@
+import 'package:aplikasi_tempat_wisata/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:aplikasi_tempat_wisata/detail_screen.dart';
 
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Wisata Bandung',
       theme: ThemeData(),
-      home: const DetailScreen(),
+      home: const MainScreen(),
     );
   }
 }
