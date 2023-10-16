@@ -1,6 +1,5 @@
 import 'package:aplikasi_tempat_wisata/model/tourism_place.dart';
 import 'package:flutter/material.dart';
-//import 'package:aplikasi_tempat_wisata/model/tourism_place.dart';
 
 class DetailScreen extends StatelessWidget {
   final informationTextStyle = const TextStyle(fontFamily: 'Oxygen');
