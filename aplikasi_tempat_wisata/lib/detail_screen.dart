@@ -197,27 +197,34 @@ class DetailWebScreen extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.all(16),
                     child: Column(
-                      children: [
+                      mainAxisSize: MainAxisSize.max,
+                      children: <Widget>[
                         Container(
-                          margin: const EdgeInsets.only(top: 16),
                           child: Text(
                             place.name,
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 30,
-                              fontWeight: FontWeight.bold,
                               fontFamily: 'Staatliches',
                             )
                           ),
                         ),
-                        Container(
-                          padding: const EdgeInsets.all(16),
-                          child: Text(
-                            place.description,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 16),
-                          )
-                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: <Widget>[
+                                const Icon(Icons.calendar_today),
+                                const SizedBox(width: 8,),
+                                Text(
+                                  place.openDays,
+                                  style: informationTextStyle,
+                                ),
+                              ],
+                            ),
+                            const FavoriteButton(),
+                          ],
+                        )
                       ],
                     ),
                   ),
