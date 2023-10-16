@@ -154,76 +154,78 @@ class DetailWebScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          //to match column width with device's width
-          children: <Widget>[
-            Container(
-              //margin: const EdgeInsets.only(top: 16, left: 32, right: 32),
-              child: Text(
-                  'WISATA BANDUNG',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Staatliches',
-                  )),
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    children: [
-                      Image.asset(place.imageAsset),
-                      Container(
-                        height: 150,
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
-                          children: place.imageUrls.map((url) {
-                            return Padding(
-                              padding: const EdgeInsets.all(4),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Image.network(url),
-                              ),
-                            );
-                          }).toList(),
-                        ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        //to match column width with device's width
+        children: <Widget>[
+          const Text(
+            'Wisata Bandung',
+            style: TextStyle(
+              fontSize: 32,
+              fontFamily: 'Staatliches',
+            )
+          ),
+          const SizedBox(height: 32),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Column(
+                  children: [
+                    Image.asset(place.imageAsset),
+                    Container(
+                      height: 150,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: place.imageUrls.map((url) {
+                          return Padding(
+                            padding: const EdgeInsets.all(4),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.network(url),
+                            ),
+                          );
+                        }).toList(),
                       ),
-                    ],
-                  )
-                ),
-                Expanded(
-                  child: Column(
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(top: 16),
-                        child: Text(
-                          place.name,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'Staatliches',
+                    ),
+                  ],
+                )
+              ),
+              const SizedBox(height: 32,),
+              Expanded(
+                child: Card(
+                  child: Container(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(top: 16),
+                          child: Text(
+                            place.name,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Staatliches',
+                            )
+                          ),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(16),
+                          child: Text(
+                            place.description,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 16),
                           )
                         ),
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(16),
-                        child: Text(
-                          place.description,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 16),
-                        )
-                      ),
-                    ],
-                  )
+                      ],
+                    ),
+                  ),
                 )
-              ],
-            )
-          ],
-        ),
+              )
+            ],
+          )
+        ],
       ),
     );
   }
