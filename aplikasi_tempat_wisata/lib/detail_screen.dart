@@ -1,9 +1,13 @@
+import 'package:aplikasi_tempat_wisata/model/tourism_place.dart';
 import 'package:flutter/material.dart';
+//import 'package:aplikasi_tempat_wisata/model/tourism_place.dart';
 
 class DetailScreen extends StatelessWidget {
   final informationTextStyle = const TextStyle(fontFamily: 'Oxygen');
 
-  const DetailScreen({Key? key}) : super(key: key);
+  final TourismPlace place;
+
+  const DetailScreen({Key? key, required this.place}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,16 +17,17 @@ class DetailScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           //to match column width with device's width
           children: <Widget>[
-            Image.asset('images/farm-house.jpg'),
+            Image.asset(place.imageAsset),
             Container(
               margin: const EdgeInsets.only(top: 16),
-              child: const Text('Farm House Lembang',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Staatliches',
-                  )),
+              child: const Text(
+                place.name,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Staatliches',
+                )),
             ),
             Container(
               margin: const EdgeInsets.symmetric(vertical: 16),
@@ -36,7 +41,7 @@ class DetailScreen extends StatelessWidget {
                         height: 8,
                       ),
                       Text(
-                        'Open Everyday',
+                        place.openDays,
                         style: informationTextStyle,
                       ),
                     ],
@@ -48,7 +53,7 @@ class DetailScreen extends StatelessWidget {
                         height: 8,
                       ),
                       Text(
-                        '09.00 - 20.00',
+                        place.openTime,
                         style: informationTextStyle,
                       )
                     ],
@@ -60,7 +65,7 @@ class DetailScreen extends StatelessWidget {
                         height: 8,
                       ),
                       Text(
-                        'Rp 25.000',
+                        place.ticketPrice,
                         style: informationTextStyle,
                       )
                     ],
@@ -71,7 +76,7 @@ class DetailScreen extends StatelessWidget {
             Container(
                 padding: const EdgeInsets.all(16),
                 child: const Text(
-                  'Berada di jalur utama Bandung-Lembang, Farm House menjadi objek wisata yang tidak pernah sepi pengunjung. Selain karena letaknya strategis, kawasan ini juga menghadirkan nuansa wisata khas Eropa. Semua itu diterapkan dalam bentuk spot swafoto Instagramable.',
+                  place.description,
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 16),
                 )),
