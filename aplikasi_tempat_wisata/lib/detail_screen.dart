@@ -21,13 +21,16 @@ class DetailScreen extends StatelessWidget {
               children: <Widget>[
                 Image.asset(place.imageAsset),
                 SafeArea(
-                  child: CircleAvatar(
-                    backgroundColor: Colors.grey,
-                    child: IconButton(
-                      icon: const Icon(Icons.arrow_back, color: Colors.white,),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
+                  child: Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: CircleAvatar(
+                      backgroundColor: Colors.grey,
+                      child: IconButton(
+                        icon: const Icon(Icons.arrow_back, color: Colors.white,),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
                     ),
                   ),
                 )
