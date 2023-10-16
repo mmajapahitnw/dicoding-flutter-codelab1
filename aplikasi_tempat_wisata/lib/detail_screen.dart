@@ -20,7 +20,7 @@ class DetailScreen extends StatelessWidget {
             Image.asset(place.imageAsset),
             Container(
               margin: const EdgeInsets.only(top: 16),
-              child: const Text(
+              child: Text(
                 place.name,
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -75,7 +75,7 @@ class DetailScreen extends StatelessWidget {
             ),
             Container(
                 padding: const EdgeInsets.all(16),
-                child: const Text(
+                child: Text(
                   place.description,
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 16),
