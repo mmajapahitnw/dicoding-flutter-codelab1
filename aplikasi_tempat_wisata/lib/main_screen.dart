@@ -11,7 +11,15 @@ class MainScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Wisata Bandung. Size: ${MediaQuery.of(context).size.width}'),
       ),
-      body: TourismPlaceList(),
+      body: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          if (constraints.maxWidth <= 600) {
+            return TourismPlaceList();
+          } else {
+            return TourismPlaceGrid();
+          }
+        },
+      ),
     );
   }
 }
@@ -77,7 +85,43 @@ class TourismPlaceGrid extends StatelessWidget {
       padding: const EdgeInsets.all(24),
       child: GridView.count(
         crossAxisCount: 4,
-        children: [],
+        children: tourismPlaceList.map((place) {
+          return InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return DetailScreen(place: place);
+              }));
+            },
+            child: Card(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Expanded(
+                    child: Image.asset(
+                      place.imageAsset,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  const SizedBox(height: 8,),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8),
+                    child: Text(
+                      place.name,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      )
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8, bottom: 8),
+                    child: Text(place.location),
+                  )
+                ],
+              ),
+            )
+          );
+        }).toList(),
       ),
     );
   }
