@@ -176,13 +176,22 @@ class DetailWebScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     const SizedBox(height: 16),
-                    // Container(
-                    //   height: 150,
-                    //   padding: const EdgeInsets.only(bottom: 16),
-                    //   child: ListView(
-                    //     scrollDirection: ,
-                    //   ),
-                    // )
+                    Container(
+                      height: 150,
+                      padding: const EdgeInsets.only(bottom: 16),
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: place.imageUrls.map((url) {
+                          return Padding(
+                            padding: const EdgeInsets.all(4),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.network(url),
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    )
                   ],
                 )
               ),
