@@ -11,7 +11,7 @@ class DetailScreen extends StatelessWidget {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         if (constraints.maxWidth > 800) {
-          return DetailMobileScreen(place: place);
+          return DetailWebScreen(place: place);
         } else {
           return DetailMobileScreen(place: place);
         }
@@ -137,6 +137,91 @@ class DetailMobileScreen extends StatelessWidget {
                 }).toList(),
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class DetailWebScreen extends StatelessWidget {
+  final informationTextStyle = const TextStyle(fontFamily: 'Oxygen');
+
+  final TourismPlace place;
+
+  const DetailWebScreen({Key? key, required this.place}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          //to match column width with device's width
+          children: <Widget>[
+            Container(
+              //margin: const EdgeInsets.only(top: 16, left: 32, right: 32),
+              child: Text(
+                  'WISATA BANDUNG',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Staatliches',
+                  )),
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    children: [
+                      Image.asset(place.imageAsset),
+                      Container(
+                        height: 150,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: place.imageUrls.map((url) {
+                            return Padding(
+                              padding: const EdgeInsets.all(4),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.network(url),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                      ),
+                    ],
+                  )
+                ),
+                Expanded(
+                  child: Column(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(top: 16),
+                        child: Text(
+                          place.name,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Staatliches',
+                          )
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(16),
+                        child: Text(
+                          place.description,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 16),
+                        )
+                      ),
+                    ],
+                  )
+                )
+              ],
+            )
           ],
         ),
       ),
