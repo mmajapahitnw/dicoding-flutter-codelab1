@@ -9,7 +9,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Wisata Bandung. Size: ${MediaQuery.of(context).size.width}'),
+        title: Text('Wisata Bandung'),
       ),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
@@ -89,6 +89,8 @@ class TourismPlaceGrid extends StatelessWidget {
       padding: const EdgeInsets.all(24),
       child: GridView.count(
         crossAxisCount: gridCount,
+        crossAxisSpacing: 16,
+        mainAxisSpacing: 16,
         children: tourismPlaceList.map((place) {
           return InkWell(
             onTap: () {
