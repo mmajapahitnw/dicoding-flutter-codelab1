@@ -2,11 +2,30 @@ import 'package:aplikasi_tempat_wisata/model/tourism_place.dart';
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatelessWidget {
+  final TourismPlace place;
+
+  const DetailScreen({Key? key, required this.place}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        if (constraints.maxWidth > 800) {
+          return DetailMobileScreen(place: place);
+        } else {
+          return DetailMobileScreen(place: place);
+        }
+      }
+    );
+  }
+}
+
+class DetailMobileScreen extends StatelessWidget {
   final informationTextStyle = const TextStyle(fontFamily: 'Oxygen');
 
   final TourismPlace place;
 
-  const DetailScreen({Key? key, required this.place}) : super(key: key);
+  const DetailMobileScreen({Key? key, required this.place}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
