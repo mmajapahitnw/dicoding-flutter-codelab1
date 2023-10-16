@@ -1,3 +1,4 @@
+import 'package:aplikasi_tempat_wisata/detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatelessWidget {
@@ -10,7 +11,11 @@ class MainScreen extends StatelessWidget {
         title: const Text('Wisata Bandung'),
       ),
       body: InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return DetailScreen();
+          }));
+        },
         child: Card(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
