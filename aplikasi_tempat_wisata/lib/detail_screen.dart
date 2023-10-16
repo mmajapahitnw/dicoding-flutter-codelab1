@@ -224,6 +224,38 @@ class DetailWebScreen extends StatelessWidget {
                             ),
                             const FavoriteButton(),
                           ],
+                        ),
+                        Row(
+                          children: <Widget>[
+                            const Icon(Icons.access_time),
+                            const SizedBox(width: 8,),
+                            Text(
+                              place.openTime,
+                              style: informationTextStyle,
+                            )
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                        Row(
+                          children: <Widget>[
+                            const Icon(Icons.monetization_on),
+                            const SizedBox(width: 8,),
+                            Text(
+                              place.ticketPrice,
+                              style: informationTextStyle,
+                            )
+                          ],
+                        ),
+                        Container(
+                          padding: const EdgeInsets.symmetric(vertical: 16),
+                          child: Text(
+                            place.description,
+                            textAlign: TextAlign.justify,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontFamily: 'Oxygen'
+                            ),
+                          ),
                         )
                       ],
                     ),
