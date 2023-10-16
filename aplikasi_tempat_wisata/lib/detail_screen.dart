@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-var informationTextStyle = const TextStyle(fontFamily: 'Oxygen');
+//var informationTextStyle = const TextStyle(fontFamily: 'Oxygen');
 
 class DetailScreen extends StatelessWidget {
+  final informationTextStyle = const TextStyle(fontFamily: 'Oxygen');
+
   const DetailScreen({Key? key}) : super(key: key);
 
   @override
